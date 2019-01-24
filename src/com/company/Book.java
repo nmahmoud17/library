@@ -39,6 +39,15 @@ public class Book {
         return publicationYear;
     }
 
+    // constructor
+
+    public Book(String title, String author, int numberOfPages, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.numberOfPages = numberOfPages ;
+        this.publicationYear = publicationYear;
+    }
+
     public void printDetails() {
         System.out.println(title);
         System.out.println(author);

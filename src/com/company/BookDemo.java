@@ -3,12 +3,12 @@ package com.company;
 import java.util.Scanner;
 
 public class BookDemo {
+    static Scanner myScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         //creating object for Libby
 
         Libby myLibby = new Libby();
-        Scanner myScanner = new Scanner(System.in);
         boolean anotherBook = true;
         int answer = 0;
         int index = 0;
@@ -21,6 +21,7 @@ public class BookDemo {
             System.out.println("3. Exit!");
 
             userInput = myScanner.nextInt();
+            myScanner.nextLine();
 
             switch (userInput) {
 
@@ -32,25 +33,15 @@ public class BookDemo {
                 case 2:
                     boolean addBook = true;
                     do {
-                        Book myBook = new Book();
+                        Book myBook = new Book(getStringAnswerFromUser("What is the title of your book? "),
+                                getStringAnswerFromUser("Who is the author of your book? "),
+                                getIntAnswerFromUser("How many pages is your book? "),
+                                getIntAnswerFromUser("What is the publication year? "));
 
-                        System.out.println("What is the title of your book? ");
-                        myBook.setTitle(myScanner.next());
+                        myBook.printDetails();
 
-                        System.out.println("Who is the author of your book? ");
-                        myBook.setAuthor(myScanner.next());
-
-                        System.out.println("How many pages is your book? ");
-                        myBook.setNumberOfPages(myScanner.nextInt());
-
-                        System.out.println("What is the publication year? ");
-                        myBook.setPublicationYear(myScanner.nextInt());
-
-                        System.out.println("Would you like to add another book? 1. Yes 2. No");
-                        answer = myScanner.nextInt();
-
+                        answer  = getIntAnswerFromUser("Would you like to add another book? 1. Yes 2. No");
                         myLibby.allBooks[index] = myBook;
-
 
                         if (answer == 1) {
                             index++;
@@ -72,6 +63,21 @@ public class BookDemo {
             }
 
         } while (anotherBook);
+
+    }
+
+    public static String getStringAnswerFromUser(String question) {
+        System.out.println(question);
+        return myScanner.nextLine();
+    }
+
+    public static int getIntAnswerFromUser(String question) {
+        int input;
+        System.out.println(question);
+        input = myScanner.nextInt();
+        myScanner.nextLine();
+        return input;
+
 
     }
 }
