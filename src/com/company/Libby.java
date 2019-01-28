@@ -16,6 +16,13 @@ public class Libby {
 
         return counter;
     }
+    public boolean isFull() {
+        return numberOfBooks() == allBooks.length;
+    }
+
+    public boolean hasRoom() {
+        return !isFull();
+    }
 
     public void addNewBook (Book book) {
         for (int i = 0; i < allBooks.length; i++) {
@@ -26,29 +33,26 @@ public class Libby {
         }
     }
 
-    public boolean isFull() {
-        return numberOfBooks() == allBooks.length;
-    }
-
-    public boolean hasRoom() {
-        return !isFull();
-    }
 
     public void searchForABookTitle(String bookTitleInput) {
         for (int i = 0; i < allBooks.length; i++) {
             if (allBooks[i] !=null && bookTitleInput.equalsIgnoreCase(allBooks[i].getTitle())) {
                 System.out.println("We found your book: " + bookTitleInput);
                 System.out.println("\n");
-            } else if (allBooks[i] == null){
+            } else {
                 break;
             }
 
         }
     }
 
-    public void deleteABook() {
-
-
+    public void deleteABook(String input) {
+        for (int i = 0; i < allBooks.length; i++) {
+            if (input.equalsIgnoreCase(allBooks[i].getTitle())) {
+                allBooks[i] = null;
+                break;
+            }
+        }
     }
 
     public void updateABook() {

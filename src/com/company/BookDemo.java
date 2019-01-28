@@ -7,22 +7,25 @@ public class BookDemo {
 
     public static void main(String[] args) {
         //creating object for Libby
-
         Libby myLibby = new Libby();
+
         boolean running = true;
-        int answer = 0;
-        int index = 0;
         int userInput = 0;
+
+
 
         do {
             System.out.println("What would you like to do?");
             System.out.println("1. Check the number of books in your library");
             System.out.println("2. Add a Book");
             System.out.println("3. Search a Book");
-            System.out.println("4. Exit!");
+            System.out.println("4. Delete a Book");
+            System.out.println("5. Update a Book");
+            System.out.println("6. Exit!");
 
             userInput = myScanner.nextInt();
             myScanner.nextLine();
+
 
             switch (userInput) {
 
@@ -35,7 +38,7 @@ public class BookDemo {
 
                 case 2:
                     if (myLibby.hasRoom()) {
-                        Book myBook = new Book(getStringAnswerFromUser("What is the title of your book? "),
+                         Book myBook = new Book(getStringAnswerFromUser("What is the title of your book? "),
                                 getStringAnswerFromUser("Who is the author of your book? "),
                                 getIntAnswerFromUser("How many pages is your book? "),
                                 getIntAnswerFromUser("What is the publication year? "));
@@ -55,6 +58,14 @@ public class BookDemo {
                     break;
 
                 case 4:
+                    System.out.println("What would you like to delete?");
+                    String input = myScanner.nextLine();
+                    myLibby.deleteABook(input);
+                    break;
+
+                case 5:
+                    break;
+                case 6:
                     System.out.println("Thanks for coming to the library!");
                     running = false;
                     break;
