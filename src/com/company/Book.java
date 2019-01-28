@@ -53,6 +53,7 @@ public class Book {
         System.out.println(author);
         System.out.println(numberOfPages);
         System.out.println(publicationYear);
+        System.out.println("\n");
 
     }
 

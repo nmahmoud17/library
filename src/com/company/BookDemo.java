@@ -9,7 +9,7 @@ public class BookDemo {
         //creating object for Libby
 
         Libby myLibby = new Libby();
-        boolean anotherBook = true;
+        boolean running = true;
         int answer = 0;
         int index = 0;
         int userInput = 0;
@@ -28,48 +28,40 @@ public class BookDemo {
 
                 case 1:
                     System.out.println("The number of books in your bookshelf is " + myLibby.numberOfBooks());
-                    anotherBook = true;
+                    System.out.println("\n");
+                    System.out.println("------------------------------");
+                    System.out.println("\n");
                     break;
 
                 case 2:
-                    boolean addBook = true;
-                    do {
+                    if (myLibby.hasRoom()) {
                         Book myBook = new Book(getStringAnswerFromUser("What is the title of your book? "),
                                 getStringAnswerFromUser("Who is the author of your book? "),
                                 getIntAnswerFromUser("How many pages is your book? "),
                                 getIntAnswerFromUser("What is the publication year? "));
 
                         myBook.printDetails();
-
-                        answer  = getIntAnswerFromUser("Would you like to add another book? 1. Yes 2. No");
-                        myLibby.allBooks[index] = myBook;
-
-                        if (answer == 1) {
-                            index++;
-                        } else if (answer == 2) {
-                            addBook = false;
-
-                        } else {
-                            System.out.println("Try again!");
-                        }
-                    } while (addBook);
+                        myLibby.addNewBook(myBook);
+                    } else {
+                        System.out.println("The library is full, try later");
+                    }
 
                     break;
-
 
                 case 3:
                     System.out.println("What is the title of the book you are searching for?");
                     String bookToSearchFor = myScanner.nextLine();
-                    myLibby.searchForABook(bookToSearchFor);
+                    myLibby.searchForABookTitle(bookToSearchFor);
+                    break;
 
                 case 4:
                     System.out.println("Thanks for coming to the library!");
-                    anotherBook = false;
+                    running = false;
                     break;
 
             }
 
-        } while (anotherBook);
+        } while (running);
 
 
     }

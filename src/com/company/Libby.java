@@ -17,12 +17,30 @@ public class Libby {
         return counter;
     }
 
-    public void searchForABook(String bookTitleInput) {
+    public void addNewBook (Book book) {
         for (int i = 0; i < allBooks.length; i++) {
-            if (allBooks[i] !=null && bookTitleInput.equals(allBooks[i].getTitle())) {
+            if (allBooks[i] == null) {
+                allBooks[i] = book;
+                break;
+            }
+        }
+    }
+
+    public boolean isFull() {
+        return numberOfBooks() == allBooks.length;
+    }
+
+    public boolean hasRoom() {
+        return !isFull();
+    }
+
+    public void searchForABookTitle(String bookTitleInput) {
+        for (int i = 0; i < allBooks.length; i++) {
+            if (allBooks[i] !=null && bookTitleInput.equalsIgnoreCase(allBooks[i].getTitle())) {
                 System.out.println("We found your book: " + bookTitleInput);
-            } else if (allBooks[i] = null){
-                System.out.println("We could not find your book, please try later");
+                System.out.println("\n");
+            } else if (allBooks[i] == null){
+                break;
             }
 
         }
