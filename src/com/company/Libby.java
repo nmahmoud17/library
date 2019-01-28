@@ -7,7 +7,6 @@ public class Libby {
 
     public Book[] allBooks = new Book[10];
 
-
     public int numberOfBooks() {
         int counter = 0;
         for (int i = 0; i < allBooks.length; i++) {
@@ -17,4 +16,26 @@ public class Libby {
 
         return counter;
     }
-}
+
+    public void searchForABook(String bookTitleInput) {
+        for (int i = 0; i < allBooks.length; i++) {
+            if (bookTitleInput.equals(allBooks[i].getTitle())) {
+                System.out.println("We found your book: " + bookTitleInput);
+            } else {
+                System.out.println("We could not find your book, please try later");
+            }
+
+        }
+    }
+
+    public void deleteABook() {
+
+
+    }
+
+    public void updateABook() {
+
+    }
+
+    }
+

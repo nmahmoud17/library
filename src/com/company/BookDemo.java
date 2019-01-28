@@ -18,7 +18,8 @@ public class BookDemo {
             System.out.println("What would you like to do?");
             System.out.println("1. Check the number of books in your library");
             System.out.println("2. Add a Book");
-            System.out.println("3. Exit!");
+            System.out.println("3. Search a Book");
+            System.out.println("4. Exit!");
 
             userInput = myScanner.nextInt();
             myScanner.nextLine();
@@ -55,7 +56,13 @@ public class BookDemo {
 
                     break;
 
+
                 case 3:
+                    System.out.println("What is the title of the book you are searching for?");
+                    String bookToSearchFor = myScanner.nextLine();
+                    myLibby.searchForABook(bookToSearchFor);
+
+                case 4:
                     System.out.println("Thanks for coming to the library!");
                     anotherBook = false;
                     break;
@@ -64,8 +71,10 @@ public class BookDemo {
 
         } while (anotherBook);
 
+
     }
 
+    //creating a method to pass through the parameters of the constructor
     public static String getStringAnswerFromUser(String question) {
         System.out.println(question);
         return myScanner.nextLine();
