@@ -19,9 +19,9 @@ public class Libby {
 
     public void searchForABook(String bookTitleInput) {
         for (int i = 0; i < allBooks.length; i++) {
-            if (bookTitleInput.equals(allBooks[i].getTitle())) {
+            if (allBooks[i] !=null && bookTitleInput.equals(allBooks[i].getTitle())) {
                 System.out.println("We found your book: " + bookTitleInput);
-            } else {
+            } else if (allBooks[i] = null){
                 System.out.println("We could not find your book, please try later");
             }
 
