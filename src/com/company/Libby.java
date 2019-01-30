@@ -1,22 +1,18 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import static java.util.Arrays.*;
 
 public class Libby {
 //    Create a new class named Library and give it (1) property:
 //    an array of Book objects. Library should have a numberOfBooksInLibrary()
 //    method which displays how many Books the user has in their Library.
 
-    public ArrayList <Book> allBooks = new ArrayList();
+    public ArrayList<Book> allBooks = new ArrayList();
 
     public int numberOfBooks() {
         int numberOfBooks = allBooks.size();
         return numberOfBooks;
     }
-
 
 
     public void addNewBook(Book book) {
@@ -26,16 +22,30 @@ public class Libby {
 
 
     public void searchForABookTitle(String bookDetail) {
-        int allBooksLength = allBooks.size();
-        for (int i =0; i < allBooksLength; i++) {
-            if (allBooks.get(i) !=null && allBooks.contains(bookDetail)) {
-                System.out.println("We found your book!");
-        } else {
-                System.out.println("Looks like we don't have that book, consider adding it" + "\n");
+
+        String foundBook = "Looks like we don't have that book, consider adding it" + "\n";
+        for (Book book : allBooks) {
+            if (book.getTitle().equals(bookDetail)) {
+                foundBook = "Found your book!" + "\n";
+                break;
             }
 
         }
+        System.out.println(foundBook);
+    }
 
+//        ALTERNATE way to do the For Each loop above!
+//        int allBooksLength = allBooks.size();
+//        for (int i=0; i < allBooksLength; i++) {
+//            if (allBooks.get(i).getTitle().equals(bookDetail)) {
+//
+//            }
+//        }
+
+
+    public void updateBookTitle(int userInputedIndexNum, String newBookTitle) {
+
+        allBooks.get(userInputedIndexNum).setTitle(newBookTitle);
 
     }
 //
