@@ -60,11 +60,16 @@ public class BookDemo {
                 case 4:
                     System.out.println("What would you like to delete?");
                     String input = myScanner.nextLine();
+                    System.out.println(input);
                     myLibby.deleteABook(input);
+
                     break;
 
                 case 5:
+                    myLibby.printBooksByIndexNumber();
+
                     break;
+
                 case 6:
                     System.out.println("Thanks for coming to the library!");
                     running = false;

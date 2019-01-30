@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.Arrays;
+
+import static java.util.Arrays.*;
+
 public class Libby {
 //    Create a new class named Library and give it (1) property:
 //    an array of Book objects. Library should have a numberOfBooksInLibrary()
@@ -15,6 +19,7 @@ public class Libby {
         }
 
         return counter;
+
     }
     public boolean isFull() {
         return numberOfBooks() == allBooks.length;
@@ -46,17 +51,35 @@ public class Libby {
         }
     }
 
+    //deletes first of instance book title if there is a break statement, otherwise deletes all books with that title
     public void deleteABook(String input) {
         for (int i = 0; i < allBooks.length; i++) {
-            if (input.equalsIgnoreCase(allBooks[i].getTitle())) {
+            if (allBooks[i] != null && input.equalsIgnoreCase(allBooks[i].getTitle())) {
                 allBooks[i] = null;
-                break;
             }
         }
+
     }
 
-    public void updateABook() {
+    public void printBooksInArray() {
+        for (Book book: allBooks){
+            if (book != null) {
+                book.printDetails();
+            } else {
+                System.out.println("Empty");
+            }
+        }
 
+    }
+    public void printBooksByIndexNumber() {
+        for (int i=0; i<allBooks.length; i++){
+            if (allBooks[i] != null) {
+                System.out.println(i);
+                allBooks[i].printDetails();
+            } else {
+                System.out.println("Empty!");
+            }
+        }
     }
 
     }
