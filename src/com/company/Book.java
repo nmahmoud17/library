@@ -49,10 +49,11 @@ public class Book {
     }
 
     public void printDetails() {
-        System.out.println(title);
-        System.out.println(author);
-        System.out.println(numberOfPages);
-        System.out.println(publicationYear);
+        System.out.println("\n");
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Number of pages: " + numberOfPages);
+        System.out.println("Publication year: " + publicationYear);
         System.out.println("\n");
 
     }
