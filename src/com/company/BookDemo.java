@@ -51,14 +51,16 @@ public class BookDemo {
                     String bookToSearchFor = myScanner.nextLine();
                     myLibby.searchForABookTitle(bookToSearchFor);
                     break;
-//
-//                case 4:
-//                    System.out.println("What would you like to delete?");
-//                    String userBookDeleteSelection = myScanner.nextLine();
-//                    System.out.println(userBookDeleteSelection);
-//                    myLibby.deleteABook(userBookDeleteSelection);
-//
-//                    break;
+
+                case 4:
+
+                    myLibby.printBookShelf();
+                    System.out.println("\n");
+                    int indexEntered = myScanner.nextInt();
+                    System.out.println("Enter the number of the book you would like to delete: " + "\n");
+                    myLibby.deleteBook(indexEntered);
+
+                    break;
 //
 //                case 5:
 //                    System.out.println("Choose the number of the Book you'd like to update: ");

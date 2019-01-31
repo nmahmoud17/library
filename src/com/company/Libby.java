@@ -48,16 +48,26 @@ public class Libby {
         allBooks.get(userInputedIndexNum).setTitle(newBookTitle);
 
     }
-//
-//    //deletes first of instance book title if there is a break statement, otherwise deletes all books with that title
-//    public void deleteABook(String input) {
-//        for (int i = 0; i < allBooks.length; i++) {
-//            if (allBooks[i] != null && input.equalsIgnoreCase(allBooks[i].getTitle())) {
-//                allBooks[i] = null;
-//            }
-//        }
-//
-//    }
+
+
+    public void printBookShelf() {
+        int allBooksLength = allBooks.size();
+        for (int i = 0; i < allBooksLength; i++) {
+            System.out.println(i);
+            System.out.println(allBooks.get(i).getTitle());
+            System.out.println(allBooks.get(i).getAuthor());
+        }
+
+    }
+
+    public void deleteBook(int indexEntered) {
+        allBooks.remove(indexEntered);
+
+    }
+
+
+}
+
 //
 //    public void printBooksInArray() {
 //        for (Book book : allBooks) {
@@ -106,5 +116,4 @@ public class Libby {
 //
 //    }
 
-}
 
